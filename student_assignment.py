@@ -16,8 +16,8 @@ def hw02_1(q1_pdf):
 def hw02_2(q2_pdf):
     loader = PyPDFLoader(q2_pdf)
     docs = loader.load()
-    full_text = "\n".join(doc.page_content for doc in docs)
+    full_text = '\n'.join(doc.page_content for doc in docs)
 
-    text_splitter = RecursiveCharacterTextSplitter(chunk_overlap=0, chunk_size=20, separators=[r'(?m)(?=^\s*第\s.*(?:條|章).*)'], is_separator_regex=True)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_overlap=0, chunk_size=20, separators=['(?m)(?=^\s*第\s.*(?:條|章).*)'], is_separator_regex=True)
     split_docs = text_splitter.split_text(full_text)
     return len(split_docs)
