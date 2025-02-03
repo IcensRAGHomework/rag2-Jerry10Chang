@@ -20,10 +20,4 @@ def hw02_2(q2_pdf):
 
     text_splitter = RecursiveCharacterTextSplitter(chunk_overlap=0, chunk_size=20, separators=[r'(?m)(?=^\s*第\s.*(?:條|章).*)'], is_separator_regex=True)
     split_docs = text_splitter.split_text(full_text)
-
-    # for idx, doc in enumerate(split_docs):
-    #     print(f"------------------\n{doc}\n------------------")
     return len(split_docs)
-
-print(hw02_1(q1_pdf))
-print(hw02_2(q2_pdf))
