@@ -18,6 +18,8 @@ def hw02_2(q2_pdf):
     docs = loader.load()
     full_text = '\n'.join(doc.page_content for doc in docs)
 
-    text_splitter = RecursiveCharacterTextSplitter(chunk_overlap=0, chunk_size=20, separators=['(?m)(?=^\s*第\s.*(?:條|章).*)'], is_separator_regex=True)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_overlap=0, chunk_size=20, separators=[r'(?=^\s*第\s.*(?:條|章).*)'], is_separator_regex=True)
     split_docs = text_splitter.split_text(full_text)
     return len(split_docs)
+
+print(hw02_2(q2_pdf))
